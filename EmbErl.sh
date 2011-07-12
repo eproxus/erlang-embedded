@@ -67,7 +67,7 @@ Available options:
 -h          Display this help message "
             exit 0
             ;;
-        * ) echo "Unimplemented option chosen."   # DEFAULT 
+        * ) echo "Unimplemented option chosen."   # DEFAULT
             ;;
     esac
 done
@@ -212,4 +212,4 @@ popd
 popd
 
 ## Test the resulted binaries for TARGET compatability
-file ./otp_src_R14B01/bin/${HOST}/erlexec
+file ./otp_src_${VERSION}/bin/${HOST}/erlexec

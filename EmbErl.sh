@@ -117,10 +117,10 @@ fi
 
 cp $XCOMP_CONF ${OTP_SRC}/$XCOMP_CONF_PATH
 
-
-show "Patching some files for arm-apple-darwin gcc compiler and iOS SDK compatibility"
-patch -N -p1 < arm-apple-darwin.patch
-
+if [[ "$UNAMESTR" == 'Darwin' ]]; then
+    show "Patching some files for arm-apple-darwin gcc compiler and iOS SDK compatibility"
+    patch -N -p1 < arm-apple-darwin.patch
+fi
 
 #Enter the Build directory and do configure
 #TODO: remove any SKIP files that were created previously

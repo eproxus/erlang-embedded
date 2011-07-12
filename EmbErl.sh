@@ -61,6 +61,7 @@ do
 
 Available options:
 -s          Strip beam files and compile with the slim flag
+-S          Strip executables using the strip utility
 -c          Compile beams using the compress flag
 -C          Compress applications into zip's
 -o <arg>    Compile the virtual machine with the <arg> optimization flag

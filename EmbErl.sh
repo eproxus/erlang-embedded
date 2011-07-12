@@ -22,10 +22,15 @@ COMPRESS_APP=true
 
 #standard gcc opt levels [1,2,3,s]
 OPT_LEVEL=s
-HOST=arm-apple-darwin10
 
-#STRIP_CMD=${HOST}-strip
-STRIP_CMD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/strip"
+UNAMESTR=`uname`
+if [[ "$UNAMESTR" == 'Linux' ]]; then
+    HOST=arm
+    STRIP_CMD=${HOST}-strip
+elif [[ "$UNAMESTR" == 'Darwin' ]]; then # Assume iPhone development = ugly
+    HOST=arm-apple-darwin10
+    STRIP_CMD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/strip"
+fi
 
 #Arguments parsing
 while getopts ":sScCoH:h" Option

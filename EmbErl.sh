@@ -28,7 +28,7 @@ HOST=arm-apple-darwin10
 STRIP_CMD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/strip"
 
 #Arguments parsing
-while getopts ":scCoH:h" Option
+while getopts ":sScCoH:h" Option
 do
     case $Option in
         s ) #echo "Stripping beam and Slim compiles"
@@ -38,6 +38,7 @@ do
             ;;
         S ) #echo "Stipping binaries"
             STRIP_BIN=true
+            TAR_NAME=${TAR_NAME}S
             ;;
         c ) #echo "Compress compiling"
             COMPRESS_COMPILE=true

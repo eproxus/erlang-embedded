@@ -6,9 +6,6 @@ VERSION=R14B01
 OTP_SRC=otp_src_$VERSION
 OTP_SRC_TAR=${OTP_SRC}.tar.gz
 
-XCOMP_CONF=erl-xcomp-arm-darwin.conf
-XCOMP_CONF_PATH=xcomp/$XCOMP_CONF
-
 TARGET_ERL_ROOT=/usr/local/erlang
 
 TAR_NAME="EmbErl_"
@@ -27,10 +24,14 @@ UNAMESTR=`uname`
 if [[ "$UNAMESTR" == 'Linux' ]]; then
     HOST=arm
     STRIP_CMD=${HOST}-strip
+    XCOMP_CONF=erl-xcomp-arm-linux.conf
 elif [[ "$UNAMESTR" == 'Darwin' ]]; then # Assume iPhone development = ugly
     HOST=arm-apple-darwin10
     STRIP_CMD="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/strip"
+    XCOMP_CONF=erl-xcomp-arm-darwin.conf
 fi
+
+XCOMP_CONF_PATH=xcomp/$XCOMP_CONF
 
 #Arguments parsing
 while getopts ":sScCoH:h" Option
